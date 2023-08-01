@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# privacy
+.env
+
+# private key
+/*.pem
+/*.txt
+/*.key
+/*.crt
