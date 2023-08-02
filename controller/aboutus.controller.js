@@ -1,6 +1,7 @@
 
 
 const AboutusModel = require("../model/aboutUsModel");
+const mongoose = require('mongoose');
 
 const addAboutUs = async (req, res) => {
 
@@ -61,11 +62,13 @@ const fetchAboutUs = async (req, res) => {
 
 const updateAboutUs = async (req, res) => {
 
-    const objectId = mongoose.Types.ObjectId(req.params.id);  // Get the id from request parameters
+    // const objectId = new mongoose.Types.ObjectId(req.params.id);  // Get the id from request parameters
+    const objectId = req.params.id;
 
-    const heading = req.body.heading;
-    const paragraph = req.body.paragraph;
-    // console.log(req.file, "hhdshdshhsd")
+    const { heading, paragraph } = req.body;
+
+
+
     const bannerUrl = req.file ? req.file.path : undefined; // Check if req.file exists before using it
 
     try {

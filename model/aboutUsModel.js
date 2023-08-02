@@ -17,11 +17,24 @@ const aboutusSchema = new mongoose.Schema({
         type: String,
         required: true
 
-    }
+    },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
 
+},
+
+    { timestamps: true }
+);
+
+
+
+aboutusSchema.pre('findOneAndUpdate', function (next) {
+    this._update.updatedAt = new Date();
+    next();
 });
 
 
+// This is pre middleware to update the updatedAt field on every update
 
 const AboutusModel = mongoose.model('aboutUs', aboutusSchema);
 

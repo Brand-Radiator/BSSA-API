@@ -28,7 +28,7 @@ router.get('/user', userController.getUser)
 router.post('/login', userController.userLogin)
 router.post('/add/aboutus', upload.single('image'), addAboutUs);
 router.get('/get/aboutus', fetchAboutUs);
-router.patch('/update/aboutus/:id', updateAboutUs)
+router.patch('/update/aboutus/:id', upload.single('image'), updateAboutUs)
 
 // routes for adding aboutus page
 
