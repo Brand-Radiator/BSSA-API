@@ -76,3 +76,10 @@ const userLogin =async(req,res)=>{
     return res.status(400).send({status:false,msg:e.message})}
   }
 module.exports.userLogin=userLogin
+
+
+
+const userForsuperAdmin =async ()=> {
+  const getUser = await userModel.find({})
+  
+}

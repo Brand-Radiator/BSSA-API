@@ -3,10 +3,12 @@ const userController = require('../controller/userController')
 const router = express.Router();
 const authorization = require("../auth/authorization")
 
+
 const multer = require('multer')
 const path = require('path');
 const { addAboutUs, fetchAboutUs, updateAboutUs } = require('../controller/aboutus.controller');
 // const upload = multer({dest:"upload/"}) // making a destination folder to save the images (upload is folder name)
+const {updateHome,createHome,fetchHome } = require ('../controller/homeController')
 
 
 const storage = multer.diskStorage({
@@ -31,6 +33,13 @@ router.get('/get/aboutus', fetchAboutUs);
 router.patch('/update/aboutus/:id', upload.single('image'), updateAboutUs)
 
 // routes for adding aboutus page
+
+// routes for home
+router.post('/add/home', upload.array('image',6), createHome);
+
+router.get('/get/home', fetchHome);
+
+router.patch('/update/home/:id', updateHome)
 
 
 
