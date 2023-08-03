@@ -9,6 +9,8 @@ const aboutusSchema = new mongoose.Schema({
         required: true,
     },
 
+
+
     heading: {
         type: String,
         required: true,
@@ -26,7 +28,7 @@ const aboutusSchema = new mongoose.Schema({
     { timestamps: true }
 );
 
-// This is pre middleware to update the updatedAt field on every update
+
 
 aboutusSchema.pre('findOneAndUpdate', function (next) {
     this._update.updatedAt = new Date();

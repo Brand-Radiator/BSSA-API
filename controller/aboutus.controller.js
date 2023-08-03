@@ -68,8 +68,10 @@ const updateAboutUs = async (req, res) => {
     const { heading, paragraph } = req.body;
 
 
-
     const bannerUrl = req.file ? req.file.path : undefined; // Check if req.file exists before using it
+
+
+    console.log(bannerUrl, "FDFDFDF");
 
     try {
         if (!heading) return res.send({ code: 400, message: "Heading required" });
